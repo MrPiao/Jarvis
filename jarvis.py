@@ -1,4 +1,4 @@
-import os, pprint, requests
+import os, requests
 from flask import Flask, request, json
 
 app = Flask(__name__)
@@ -6,8 +6,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def jarvis():
 	try:
-		pp = pprint.PrettyPrinter(indent=4)
-		returnString = pp.pformat(request.form)
+		if request.form["name"] != "Jarvis":
+			returnString = request.form["text"]
 	except e:
 		print(e)
 
