@@ -1,11 +1,13 @@
-import os, requests
+import os, requests, logging
 from flask import Flask, request, json
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route('/', methods=['POST'])
 def jarvis():
 	try:
+		app.logger.debug(request.form)
 		if request.form["name"] != "Jarvis":
 			returnString = request.form["text"]
 			sendMessage(returnString)
