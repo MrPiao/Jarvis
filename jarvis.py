@@ -6,17 +6,12 @@ app.debug = True
 
 @app.route('/', methods=['POST'])
 def jarvis():
-	try:
-		app.logger.debug(request.form)
-		if request.form["name"] != "Jarvis":
-			returnString = request.form["text"]
-			sendMessage(returnString)
-	except e:
-		app.logger.debug(e)
+	incoming = request.get_json(force=true)
+	app.logger.debug(incoming)
+	if incoming["name"] != "Jarvis":
+		returnString = incoming["text"]
+		sendMessage(returnString)
 
 def sendMessage(message):
-	try:
-		url = "https://api.groupme.com/v3/bots/post"
-		r = requests.post(url, {"text" : message, "bot_id" : "0ef377109c8295124ee4af8978"})
-	except e:
-		app.logger.debug(e)
+	url = "https://api.groupme.com/v3/bots/post"
+	r = requests.post(url, {"text" : message, "bot_id" : "0ef377109c8295124ee4af8978"})
