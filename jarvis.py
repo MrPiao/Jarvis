@@ -7,6 +7,6 @@ app = Flask(__name__)
 def jarvis():
 	try:
 		returnString = "Testing: " + request.form["text"]
-		print returnString
+		print(returnString)
 	except e:
-		print e
+		print(e)
