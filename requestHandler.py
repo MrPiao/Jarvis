@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.debug = True
 
 @app.route('/', methods=['POST'])
-def requestHandler():
+def jarvis():
     incoming = request.get_json(force=True)
     app.logger.debug(incoming)
     if incoming["name"] != "Jarvis":
