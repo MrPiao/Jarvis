@@ -1,8 +1,12 @@
 import os
-from flask import Flask
+from flask import Flask, request, json
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def jarvis():
-	return "I'm Jarvis."
+	try:
+		returnString = "Testing: " + request.form["text"]
+		print returnString
+	except e:
+		print e
