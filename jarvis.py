@@ -8,6 +8,7 @@ def jarvis():
 	try:
 		if request.form["name"] != "Jarvis":
 			returnString = request.form["text"]
+			sendMessage(returnString)
 	except e:
 		print(e)
 
