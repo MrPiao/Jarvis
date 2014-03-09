@@ -1,6 +1,5 @@
-import os, pprint
+import os, pprint, requests
 from flask import Flask, request, json
-from http.client import *
 
 app = Flask(__name__)
 
@@ -15,11 +14,7 @@ def jarvis():
 
 def sendMessage(message):
 	try:
-		conn = HTTPSConnection("http://jarvisthegroupmebot.herokuapp.com/")
-		body = {
-			"bot_id": "0ef377109c8295124ee4af8978",
-			"text": message
-		}
-		conn.request("POST", "https://api.groupme.com/v3/bots/post", body)
+		url = "https://api.groupme.com/v3/bots/post"
+		r = requests.post(url, {"text" : message, "bot_id" : "0ef377109c8295124ee4af8978"})
 	except e:
 		print(e)
