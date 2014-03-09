@@ -15,7 +15,7 @@ def jarvis():
 
 def sendMessage(message):
 	try:
-		conn = HTTPSConnection("")
+		conn = HTTPSConnection("http://jarvisthegroupmebot.herokuapp.com/")
 		body = {
 			"bot_id": "0ef377109c8295124ee4af8978",
 			"text": message
