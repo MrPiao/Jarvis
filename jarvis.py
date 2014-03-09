@@ -8,7 +8,6 @@ def jarvis():
 	try:
 		pp = pprint.PrettyPrinter(indent=4)
 		returnString = pp.pformat(request.form)
-		sendMessage(returnString)
 	except e:
 		print(e)
 
