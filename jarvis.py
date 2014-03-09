@@ -6,7 +6,7 @@ app.debug = True
 
 @app.route('/', methods=['POST'])
 def jarvis():
-	incoming = request.get_json(force=true)
+	incoming = request.get_json(force=True)
 	app.logger.debug(incoming)
 	if incoming["name"] != "Jarvis":
 		returnString = incoming["text"]
