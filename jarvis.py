@@ -12,11 +12,11 @@ def jarvis():
 			returnString = request.form["text"]
 			sendMessage(returnString)
 	except e:
-		print(e)
+		app.logger.debug(e)
 
 def sendMessage(message):
 	try:
 		url = "https://api.groupme.com/v3/bots/post"
 		r = requests.post(url, {"text" : message, "bot_id" : "0ef377109c8295124ee4af8978"})
 	except e:
-		print(e)
+		app.logger.debug(e)
