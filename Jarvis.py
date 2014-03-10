@@ -18,6 +18,7 @@ class Jarvis:
 
     def Acknowledge(self, name):
         self.talkingTo = name
+        GroupMeInterface.SendMessage("How can I help you, " + self.talkingTo + "?")
 
     def EndConversation(self):
         self.talkingTo = None
