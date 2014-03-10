@@ -1,5 +1,5 @@
 from Jarvis import Jarvis
-import os. logging
+import os, logging
 from flask import Flask, request, json
 
 app = Flask(__name__)
