@@ -8,7 +8,7 @@ class Jarvis:
     def ParseAndRespond(self, incoming):
         incoming = incoming
         body = incoming["text"].lower()
-        sefl.logger.debug("Body: " + body)
+        self.logger.debug("Body: " + body)
 
         speaker = incoming["name"]
         self.logger.debug("Speaker: " + speaker)
