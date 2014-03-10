@@ -5,8 +5,8 @@ class Jarvis:
         self.talkingTo = None
 
     def ParseAndRespond(self, incoming):
-        incoming = incoming.lower()
-        body = incoming["text"]
+        incoming = incoming
+        body = incoming["text"].lower()
         speaker = incoming["name"]
 
         if body == "jarvis":
