@@ -3,7 +3,7 @@ import os, requests, logging
 from flask import Flask, request, json
 
 app = Flask(__name__)
-jarvis = Jarvis()
+jarvis = Jarvis(app.logger)
 app.debug = True
 
 @app.route('/', methods=['POST'])

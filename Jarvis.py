@@ -1,15 +1,19 @@
 from GroupMeInterface import GroupMeInterface
 
 class Jarvis:
-    def __init__(self):
+    def __init__(self, logger):
         self.talkingTo = None
+        self.logger = logger
 
     def ParseAndRespond(self, incoming):
         incoming = incoming
         body = incoming["text"].lower()
-        speaker = incoming["name"]
+        logger.debug("Body: " + body)
 
-        if body == "jarvis":
+        speaker = incoming["name"]
+        logger.debug("Speaker: " + speaker)
+
+        if body.startswith("jarvis"):
             self.Acknowledge(speaker)
 
         if speaker == self.talkingTo:
@@ -17,12 +21,14 @@ class Jarvis:
                 self.EndConversation()
 
     def Acknowledge(self, name):
+        logger.debug("In Acknowledge")
         self.talkingTo = name
-        GroupMeInterface.SendMessage("How can I help you, " + self.talkingTo + "?")
+        self.Speak("How can I help you, " + self.talkingTo + "?")
 
     def EndConversation(self):
+        logger.debug("In EndConversation")
         self.talkingTo = None
-        GroupMeInterface.SendMessage("You're welcome")
+        self.Speak("You're welcome")
 
     def Speak(self, text):
         GroupMeInterface.SendMessage(text)
