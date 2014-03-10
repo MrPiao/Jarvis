@@ -1,3 +1,5 @@
+import requests
+
 class GroupMeInterface:
     @staticmethod
     def SendMessage(message):
