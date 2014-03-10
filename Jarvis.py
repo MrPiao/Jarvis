@@ -8,10 +8,10 @@ class Jarvis:
     def ParseAndRespond(self, incoming):
         incoming = incoming
         body = incoming["text"].lower()
-        logger.debug("Body: " + body)
+        sefl.logger.debug("Body: " + body)
 
         speaker = incoming["name"]
-        logger.debug("Speaker: " + speaker)
+        self.logger.debug("Speaker: " + speaker)
 
         if body.startswith("jarvis"):
             self.Acknowledge(speaker)
@@ -21,12 +21,12 @@ class Jarvis:
                 self.EndConversation()
 
     def Acknowledge(self, name):
-        logger.debug("In Acknowledge")
+        self.logger.debug("In Acknowledge")
         self.talkingTo = name
         self.Speak("How can I help you, " + self.talkingTo + "?")
 
     def EndConversation(self):
-        logger.debug("In EndConversation")
+        self.logger.debug("In EndConversation")
         self.talkingTo = None
         self.Speak("You're welcome")
 
