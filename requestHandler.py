@@ -8,12 +8,9 @@ app.debug = True
 
 @app.route('/', methods=['POST'])
 def requestHandler():
-    try:
-        incoming = request.get_json(force=True)
-        app.logger.debug(incoming)
-        if incoming["name"] != "Jarvis":
-            jarvis.ParseAndRespond(incoming)
-    except:
-        pass
+    incoming = request.get_json(force=True)
+    app.logger.debug(incoming)
+    if incoming["name"] != "Jarvis":
+        jarvis.ParseAndRespond(incoming)
 
     return ""
